@@ -5,11 +5,11 @@ import keras
 import os
 os.environ["KERAS_BACKEND"] = "torch"
 from keras import optimizers
-from Keras.keras.models import Sequential
-from Keras.keras.layers import Dense
+from keras.models import Sequential
+from keras.layers import Dense
 ### Partie A - Les données
-from Keras.keras.datasets import mnist
-from Keras.keras.utils import to_categorical
+from keras.datasets import mnist
+from keras.utils import to_categorical
 # Téléchargement des données
 (X_train_data,Y_train_data),(X_test_data,Y_test_data) = mnist.load_data()
 N = X_train_data.shape[0] # N = 60 000 données
@@ -22,6 +22,10 @@ Y_train = to_categorical(Y_train_data, num_classes=10)
 X_test = np.reshape(X_test_data,(X_test_data.shape[0],784))
 X_test = X_test/255
 Y_test = to_categorical(Y_test_data, num_classes=10)
+
+
+
+
 ### Partie B - Le réseau de neurones
 p = 8
 modele = Sequential()
@@ -32,12 +36,28 @@ modele.add(Dense(p, activation='sigmoid'))
 
 # Couche de sortie : 1O neurones (un par chiffre)
 modele.add(Dense(10, activation='softmax'))
+
 # La fonction d'activation 'softmax' sera décrite dans le paragraphe suivant.
 # Choix de la méthode de descente de gradient
 modele.compile(loss='categorical_crossentropy',
 optimizer='sgd',
 metrics=['accuracy'])
+
+
+### Partie C - Calcul des poids par descente de gradient
+modele.fit(X_train, Y_train, batch_size=32, epochs=40)
+
+
+### Partie D - Résultats
+resultat = modele.evaluate(X_test, Y_test, verbose=0)
+print('Valeur de l''erreur sur les données de test (loss):', resultat[0])
+print('Précision sur les données de test (accuracy):', resultat[1])
+
+
+
 # La fonction d'erreur 'categorical_crossentropy' est décrite dans le paragraphe suivant.
 # L'optimisation 'sgd' est décrite dans le paragraphe suivant.
 # 'accuracy' est décrite dans le paragraphe suivant.
 print(modele.summary())
+
+page 7 exo 1 et aller jusqua tp3 exo 6
