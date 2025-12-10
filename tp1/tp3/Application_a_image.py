@@ -35,15 +35,13 @@ image = np.array([
     [0,0,0,0,0]
 ])
 
-image = data.camera()
+image = data.checkerboard()
 
 image_normalized = (image - np.min(image)) / (np.max(image) - np.min(image))
 
-filtre =[
-    [0,-1,0,],
-    [-1,5,-1],
-    [0,-1,0]
-]
+
+
+filtre =(np.ones((3,3), np.float32)/9)
 
 
 cmp = get_cmap('gray')
