@@ -42,9 +42,9 @@ image_normalized = (image - np.min(image)) / (np.max(image) - np.min(image))
 
 
 filtre =[
-    [-1,2,-1],
-    [-1,2,-1],
-    [-1,2,-1]
+        [-1,-1,-1],
+        [2,2,2],
+        [-1,-1,-1]
 ]
 
 
