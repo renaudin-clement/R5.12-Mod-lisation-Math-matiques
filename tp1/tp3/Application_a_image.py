@@ -35,12 +35,14 @@ image = np.array([
     [0,0,0,0,0]
 ])
 
-image = data.horse()
+image = data.camera()
+
+image_normalized = (image - np.min(image)) / (np.max(image) - np.min(image))
 
 filtre =[
-    [0,1,0],
-    [1,-4,1],
-    [0,1,0]
+    [0,-1,0,],
+    [-1,5,-1],
+    [0,-1,0]
 ]
 
 
