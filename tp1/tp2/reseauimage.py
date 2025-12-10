@@ -60,4 +60,4 @@ print('Précision sur les données de test (accuracy):', resultat[1])
 # 'accuracy' est décrite dans le paragraphe suivant.
 print(modele.summary())
 
-page 7 exo 1 et aller jusqua tp3 page 6 ex0 2
+#page 7 exo 1 et aller jusqua tp3 page 6 ex0 2
