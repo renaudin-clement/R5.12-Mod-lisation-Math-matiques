@@ -20,8 +20,8 @@ pooling_sizes = [2, 3, 4,10]
 
 
 for size in pooling_sizes:
-    # Utilise la fonction block_reduce de skimage pour effectuer le max pooling
-    pooled_image = block_reduce(image, (size, size), np.max)
+    # Utilise la fonction block_reduce de skimage pour effectuer le mean pooling
+    pooled_image = block_reduce(image, (size, size), np.mean)
     # Affiche le nombre de pixels de l'image après max pooling
     print(f"Nombre de pixels après Max Pooling {size}x{size} : {pooled_image.size}")
     # Affiche l'image résultante avec le titre correspondant
