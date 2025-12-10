@@ -41,7 +41,11 @@ image_normalized = (image - np.min(image)) / (np.max(image) - np.min(image))
 
 
 
-filtre =(np.ones((3,3), np.float32)/9)
+filtre =[
+    [-1,2,-1],
+    [-1,2,-1],
+    [-1,2,-1]
+]
 
 
 cmp = get_cmap('gray')
